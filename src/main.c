@@ -7,11 +7,26 @@
 
 #include <stdio.h>
 
+int prime (int num){
+
+	int i;
+	if ((num == 0) || (num == 1)) {
+		return 0;
+	}
+	else {
+		for (i=2; i<((num/2)+1); i++){
+			if (num%i == 0){
+				return 0;
+			}
+		}
+		return 1;
+	}	
+}
+
 int main() {
 
-  int x, y;
+  int i;
 
-  scanf("%d %d\n", &x, &y);
-  printf("%d\n", x + 200);
+  
   return 0;
 }
