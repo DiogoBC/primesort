@@ -29,7 +29,7 @@ int main() {
 	int num;
 	FILE *pipeIn;	
 
-	pipeIn = popen ("sort -r", "w");
+	pipeIn = popen ("sort -g -r", "w");
 
 	while (1){
 
@@ -39,7 +39,7 @@ int main() {
 	  		break;
 	  	}
 	  	else {
-	  		if (prime (num) == 0){
+	  		if (prime (num) == 0){	  			
 	  			fprintf (pipeIn, "%d\n",num);	  			  				  				  			
 	  		}
 		}
