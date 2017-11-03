@@ -1,8 +1,9 @@
-/* Contador de palavras
+/*	PrimeSort
  *
- * Este programa recebera uma serie de caracteres representando palavras em sua
- * entrada. Ao receber um caractere fim de linha ('\n'), deve imprimir na tela o
- * numero de palavras separadas que recebeu e, apos, encerrar.
+ *	Esta tarefa é sobre usar pipes e ferramentas do Linux. Nela, você deverá escrever um prorama que 
+ *	recebe como entrada uma sequência de números inteiros positivos, separados por um caractere newline. 
+ *	A sequência é encerrada pelo número -1. O programa deve escrever na tela todos os números não-primos 
+ *	dessa sequência, um por linha ordenados do maior para o menor.
  */
 
 #include <stdio.h>
@@ -25,8 +26,26 @@ int prime (int num){
 
 int main() {
 
-  int i;
+	int num;
+	FILE *pipeIn;	
 
-  
-  return 0;
+	pipeIn = popen ("sort -r", "w");
+
+	while (1){
+
+		scanf ("%d\n", &num);	  	
+
+	  	if (num < 0){	  		
+	  		break;
+	  	}
+	  	else {
+	  		if (prime (num) == 0){
+	  			fprintf (pipeIn, "%d\n",num);	  			  				  				  			
+	  		}
+		}
+	}
+
+	pclose (pipeIn);
+	  
+	return 0;
 }
